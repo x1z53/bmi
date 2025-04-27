@@ -21,6 +21,11 @@
 # Imports
 from gi.repository import Adw, Gtk, Gdk, Gio
 import math
+import gettext
+
+gettext.textdomain("bmi")
+print(gettext.__dict__)
+_ = gettext.gettext
 
 # Shorthand vars
 app_id = "io.github.philippkosarev.bmi"
@@ -42,7 +47,7 @@ class BmiWindow(Adw.ApplicationWindow):
         self.connect("close-request", self.on_close_window)
 
         # Basic window properties
-        self.set_title("BMI")
+        self.set_title(_("BMI"))
         self.set_default_size(0, 230)
         self.set_resizable(False)
 
@@ -55,13 +60,13 @@ class BmiWindow(Adw.ApplicationWindow):
         self.content.add_top_bar(self.header)
         # About button
         self.about_button = Gtk.Button(icon_name="help-about-symbolic")
-        self.about_button.set_tooltip_text("Show About")
+        self.about_button.set_tooltip_text(_("Show About"))
         self.about_button.connect('clicked', self.show_about)
         self.header.pack_end(self.about_button)
         # Mode dropdown
         self.mode_dropdown = Gtk.DropDown()
         modes_list = Gtk.StringList()
-        modes = ["BMI (Basic)", "BMI (Advanced)"]
+        modes = [_("BMI (Basic)"), _("BMI (Advanced)")]
         for mode in modes:
             modes_list.append(mode)
         self.mode_dropdown.set_model(modes_list)
@@ -73,12 +78,12 @@ class BmiWindow(Adw.ApplicationWindow):
         self.units_button = Gtk.ToggleButton(icon_name="ruler-angled-symbolic")
         self.units_button.set_active(self.settings["imperial"])
         self.units_button.connect('toggled', self.on_units_button)
-        self.units_button.set_tooltip_text("Switch to imperial")
+        self.units_button.set_tooltip_text(_("Switch to imperial"))
         self.header.pack_start(self.units_button)
         # Forget button
         self.forget_button = Gtk.ToggleButton(icon_name="user-trash-full-symbolic")
         self.forget_button.set_active(self.settings["forget"])
-        self.forget_button.set_tooltip_text("Forget values on close")
+        self.forget_button.set_tooltip_text(_("Forget values on close"))
         self.header.pack_start(self.forget_button)
 
         # WindowHandle to make the whole window draggable
@@ -117,14 +122,14 @@ class BmiWindow(Adw.ApplicationWindow):
         self.advanced_inputs_page.set_size_request(300, 330)
         self.main_box.append(self.advanced_inputs_page)
         # Advanced input group
-        self.advanced_inputs_group = Adw.PreferencesGroup(title="Advanced inputs")
+        self.advanced_inputs_group = Adw.PreferencesGroup(title=_("Advanced inputs"))
         self.advanced_inputs_page.add(self.advanced_inputs_group)
         # Gender input row
-        self.gender_adjustment = Adw.ComboRow(title="Gender")
-        self.gender_adjustment.set_tooltip_text("Affects healthy/unhealthy thresholds for Waist to Hip ratio")
+        self.gender_adjustment = Adw.ComboRow(title=_("Gender"))
+        self.gender_adjustment.set_tooltip_text(_("Affects healthy/unhealthy thresholds for Waist to Hip ratio"))
         gender_list = Gtk.StringList()
         self.gender_adjustment.set_model(gender_list)
-        genders = ["Average", "Female", "Male"]
+        genders = [_("Average"), _("Female"), _("Male")]
         for gender in genders:
             gender_list.append(gender)
         self.gender_adjustment.set_selected(self.settings["gender"])
@@ -132,14 +137,14 @@ class BmiWindow(Adw.ApplicationWindow):
         self.advanced_inputs_group.add(self.gender_adjustment)
         # Age input row
         self.age_adjustment = Gtk.Adjustment(lower=18, upper=123, step_increment=1, page_increment=10)
-        self.create_input_row("age_input_row", "Age", self.age_adjustment, 0, "Affects healthy/unhealthy thresholds for Waist to Height ratio", True)
-        self.age_input_row.set_subtitle("Years")
+        self.create_input_row("age_input_row", _("Age"), self.age_adjustment, 0, _("Affects healthy/unhealthy thresholds for Waist to Height ratio"), True)
+        self.age_input_row.set_subtitle(_("Years"))
         # Waist circumference input row
         self.waist_adjustment = Gtk.Adjustment(lower= 25, upper=650, step_increment=1, page_increment=10)
-        self.create_input_row("waist_input_row", "Waist", self.waist_adjustment, 1, "Affects Waist to Height ratio, Waist to Hip ratio and BRI", True)
+        self.create_input_row("waist_input_row", _("Waist"), self.waist_adjustment, 1, _("Affects Waist to Height ratio, Waist to Hip ratio and BRI"), True)
         # Hip circumference input row
         self.hip_adjustment = Gtk.Adjustment(lower= 25, upper=650, step_increment=1, page_increment=10)
-        self.create_input_row("hip_input_row", "Hip", self.hip_adjustment, 1, "Affects Waist to Hip ratio", True)
+        self.create_input_row("hip_input_row", _("Hip"), self.hip_adjustment, 1, _("Affects Waist to Hip ratio"), True)
 
         # Arrow icon
         self.icon = Gtk.Image(icon_name="go-next-symbolic", pixel_size=32)
@@ -158,7 +163,7 @@ class BmiWindow(Adw.ApplicationWindow):
         self.right_box.append(self.result_label)
         # The button which shows the BMI number
         self.bmi_button = Gtk.Button(halign=center)
-        self.bmi_button.set_tooltip_text("Copy BMI")
+        self.bmi_button.set_tooltip_text(_("Copy BMI"))
         self.bmi_button.set_css_classes(["pill", "title-1"])
         self.bmi_button.connect('clicked', self.clipboard_copy)
         self.bmi_button.set_size_request(110, 0)
@@ -174,13 +179,13 @@ class BmiWindow(Adw.ApplicationWindow):
         self.right_page.set_margin_start(24)
         self.main_box.append(self.right_page)
         # Advanced results group
-        self.right_group = Adw.PreferencesGroup(title="Results")
+        self.right_group = Adw.PreferencesGroup(title=_("Results"))
         self.right_page.add(self.right_group)
         # Result rows
-        self.create_result_row("result_bmi_row", "BMI", "Body Mass Index")
-        self.create_result_row("result_waist_to_height_row", "Waist / Height", "Waist to height ratio")
-        self.create_result_row("result_waist_to_hip_row", "Waist / Hip", "Waist to hip ratio")
-        self.create_result_row("result_bri_row", "BRI", "Body Roundness Index")
+        self.create_result_row("result_bmi_row", _("BMI"), _("Body Mass Index"))
+        self.create_result_row("result_waist_to_height_row", _("Waist / Height"), _("Waist to height ratio"))
+        self.create_result_row("result_waist_to_hip_row", _("Waist / Hip"), _("Waist to hip ratio"))
+        self.create_result_row("result_bri_row", _("BRI"), _("Body Roundness Index"))
 
         # Setting values for input rows
         self.height_input_row.set_value(self.settings["height"])
@@ -283,11 +288,11 @@ class BmiWindow(Adw.ApplicationWindow):
     def update_units_labels(self):
         # Setting vars
         if self.imperial is False:
-            distance = "Centimetres"
-            mass = "Kilograms"
+            distance = _("Centimetres")
+            mass = _("Kilograms")
         else:
-            distance = "Inches"
-            mass = "Pounds"
+            distance = _("Inches")
+            mass = _("Pounds")
         # Setting subtitles
         for row in self.distance_rows:
             row.set_subtitle(distance)
@@ -354,10 +359,10 @@ class BmiWindow(Adw.ApplicationWindow):
         else:
             self.waist_to_height_unhealthy = 0.5
         # Waist to Hip thresholds
-        if self.gender == "Female":
+        if self.gender == _("Female"):
             self.waist_to_hip_overweight = 0.8
             self.waist_to_hip_obese = 0.85
-        elif self.gender == "Male":
+        elif self.gender == _("Male"):
             self.waist_to_hip_overweight = 0.9
             self.waist_to_hip_obese = 1
         else:
@@ -383,48 +388,48 @@ class BmiWindow(Adw.ApplicationWindow):
         self.bmi_button.set_label(simple_bmi_result)
         def set_result_for_bmi_label(over, css_class, label):
             self.set_result(self.result_feedback_label, self.bmi, over, css_class, label)
-        set_result_for_bmi_label(self.bmi_underweight3, "light-blue", "Underweight")
-        set_result_for_bmi_label(self.bmi_healthy, "success", "Healthy")
-        set_result_for_bmi_label(self.bmi_overweight, "warning", "Overweight")
-        set_result_for_bmi_label(self.bmi_obese1, "error", "Obese")
-        set_result_for_bmi_label(self.bmi_obese3, "error", "Extremely obese")
+        set_result_for_bmi_label(self.bmi_underweight3, "light-blue", _("Underweight"))
+        set_result_for_bmi_label(self.bmi_healthy, "success", _("Healthy"))
+        set_result_for_bmi_label(self.bmi_overweight, "warning", _("Overweight"))
+        set_result_for_bmi_label(self.bmi_obese1, "error", _("Obese"))
+        set_result_for_bmi_label(self.bmi_obese3, "error", _("Extremely obese"))
         # Setting advanced BMI results
         self.result_bmi_row_label.set_label(advanced_bmi_result)
         def set_result_for_bmi_row(over, css_class, label):
             self.set_result(self.result_bmi_row, self.bmi, over, css_class, label)
-        set_result_for_bmi_row(self.bmi_underweight3, "light-blue", "Underweight [Severe]")
-        set_result_for_bmi_row(self.bmi_underweight2, "light-blue", "Underweight [Moderate]")
-        set_result_for_bmi_row(self.bmi_underweight1, "light-blue", "Underweight [Mild]")
-        set_result_for_bmi_row(self.bmi_healthy, "success", "Healthy")
+        set_result_for_bmi_row(self.bmi_underweight3, "light-blue", _("Underweight [Severe]"))
+        set_result_for_bmi_row(self.bmi_underweight2, "light-blue", _("Underweight [Moderate]"))
+        set_result_for_bmi_row(self.bmi_underweight1, "light-blue", _("Underweight [Mild]"))
+        set_result_for_bmi_row(self.bmi_healthy, "success", _("Healthy"))
         set_result_for_bmi_row(self.bmi_overweight, "warning", "Overweight")
-        set_result_for_bmi_row(self.bmi_obese1, "error", "Obese [Class 1]")
-        set_result_for_bmi_row(self.bmi_obese2, "error", "Obese [Class 2]")
-        set_result_for_bmi_row(self.bmi_obese3, "error", "Obese [Class 3]")
+        set_result_for_bmi_row(self.bmi_obese1, "error", _("Obese [Class 1]"))
+        set_result_for_bmi_row(self.bmi_obese2, "error", _("Obese [Class 2]"))
+        set_result_for_bmi_row(self.bmi_obese3, "error", _("Obese [Class 3]"))
 
         # Setting advanced Waist to Height results
         self.result_waist_to_height_row_label.set_label(advanced_waist_to_height_result)
         def set_result_for_bri_row(over, css_class, label):
             self.set_result(self.result_waist_to_height_row, self.waist_to_height, over, css_class, label)
-        set_result_for_bri_row(0, "success", "Healthy")
-        set_result_for_bri_row(self.waist_to_height_unhealthy, "warning", "Unhealthy")
+        set_result_for_bri_row(0, "success", _("Healthy"))
+        set_result_for_bri_row(self.waist_to_height_unhealthy, "warning", _("Unhealthy"))
 
         # Setting advanced Waist to Hip results
         self.result_waist_to_hip_row_label.set_label(advanced_waist_to_hip_result)
         def set_result_for_waist_to_hip_row(over, css_class, label):
             self.set_result(self.result_waist_to_hip_row, self.waist_to_hip, over, css_class, label)
-        set_result_for_waist_to_hip_row(0, "success", "Healthy")
-        set_result_for_waist_to_hip_row(self.waist_to_hip_overweight, "warning", "Overweight")
-        set_result_for_waist_to_hip_row(self.waist_to_hip_obese, "error", "Obese")
+        set_result_for_waist_to_hip_row(0, "success", _("Healthy"))
+        set_result_for_waist_to_hip_row(self.waist_to_hip_overweight, "warning", _("Overweight"))
+        set_result_for_waist_to_hip_row(self.waist_to_hip_obese, "error", _("Obese"))
 
         # Setting advanced BRI results
         self.result_bri_row_label.set_label(advanced_bri_result)
         def set_result_for_bri_row(over, css_class, label):
             self.set_result(self.result_bri_row, self.bri, over, css_class, label)
-        set_result_for_bri_row(self.bri_underweight2, "light-blue", "Very lean")
-        set_result_for_bri_row(self.bri_underweight1, "success", "Healthy")
-        set_result_for_bri_row(self.bri_healthy, "warning", "Overweight")
-        set_result_for_bri_row(self.bri_overweight1, "warning", "Obese")
-        set_result_for_bri_row(self.bri_overweight2, "error", "Extremely obese")
+        set_result_for_bri_row(self.bri_underweight2, "light-blue", _("Very lean"))
+        set_result_for_bri_row(self.bri_underweight1, "success", _("Healthy"))
+        set_result_for_bri_row(self.bri_healthy, "warning", _("Overweight"))
+        set_result_for_bri_row(self.bri_overweight1, "warning", _("Obese"))
+        set_result_for_bri_row(self.bri_overweight2, "error", _("Extremely obese"))
 
         # Creates a spin row and adds it to either self.inputs_group or advanced_inputs_group
     def create_input_row(self, widgetName, title, adjustment, digits, tooltip, advanced):
@@ -471,10 +476,10 @@ class BmiWindow(Adw.ApplicationWindow):
             value = widget.get_label();
         value = str(value) # Gdk Clipboard only accepts strings
         clipboard = Gdk.Display.get_default().get_clipboard()
-        print(f"Copied result '{value}'")
+        print(_(f"Copied result '{value}'"))
         Gdk.Clipboard.set(clipboard, value);
         # Creating and showing a toast
-        self.toast = Adw.Toast(title="Result copied", timeout=1)
+        self.toast = Adw.Toast(title=_("Result copied"), timeout=1)
         self.toast_overlay.add_toast(self.toast)
 
     # For easier conversions
@@ -485,7 +490,7 @@ class BmiWindow(Adw.ApplicationWindow):
 
     # Show the About app dialog
     def show_about(self, _button):
-        self.about = Adw.AboutWindow(application_name='BMI',
+        self.about = Adw.AboutWindow(application_name=_('BMI'),
         application_icon='io.github.philippkosarev.bmi',
         developer_name='Philipp Kosarev',
         version='v3.0',

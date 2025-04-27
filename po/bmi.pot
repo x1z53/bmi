@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bmi package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bmi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-27 16:46+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Basic window properties
+#. Result rows
+#: data/io.github.philippkosarev.bmi.desktop.in:3
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:7 src/window.py:49
+#: src/window.py:184 src/window.py:492
+msgid "BMI"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.desktop.in:4
+msgid "Calculate body mass index"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.desktop.in:10
+msgid "GTK;body;mass;index;calculator"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:8
+msgid "Body mass index calculator"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:10
+msgid ""
+"BMI is an open-source, body mass index calculator built with GTK4 and "
+"LibAdwaita."
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:52
+msgid "BMI Basic Mode Dark Theme"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:56
+msgid "BMI Basic Mode Light Theme"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:60
+msgid "BMI Advanced Mode Dark Theme"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:64
+msgid "BMI Advanced Mode Light Theme"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:6
+msgid "Forget height and weight on quit"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:10
+msgid "Whether the app uses metric or imperial units"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:14
+msgid "Height in centimetres or inches"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:18
+msgid "Weight in kilograms or pounds"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:22
+msgid "Toggles Advanced mode"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:26
+msgid "Years since birth"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:30
+msgid "Biological gender"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:34
+msgid "Waist circumference in centimeters"
+msgstr ""
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:38
+msgid "Hip circumference in centimeters"
+msgstr ""
+
+#: src/window.py:62
+msgid "Show About"
+msgstr ""
+
+#: src/window.py:68
+msgid "BMI (Basic)"
+msgstr ""
+
+#: src/window.py:68
+msgid "BMI (Advanced)"
+msgstr ""
+
+#: src/window.py:80
+msgid "Switch to imperial"
+msgstr ""
+
+#: src/window.py:85
+msgid "Forget values on close"
+msgstr ""
+
+#. Advanced input group
+#: src/window.py:124
+msgid "Advanced inputs"
+msgstr ""
+
+#. Gender input row
+#: src/window.py:127
+msgid "Gender"
+msgstr ""
+
+#: src/window.py:128
+msgid "Affects healthy/unhealthy thresholds for Waist to Hip ratio"
+msgstr ""
+
+#: src/window.py:131
+msgid "Average"
+msgstr ""
+
+#. Waist to Hip thresholds
+#: src/window.py:131 src/window.py:361
+msgid "Female"
+msgstr ""
+
+#: src/window.py:131 src/window.py:364
+msgid "Male"
+msgstr ""
+
+#: src/window.py:139
+msgid "Age"
+msgstr ""
+
+#: src/window.py:139
+msgid "Affects healthy/unhealthy thresholds for Waist to Height ratio"
+msgstr ""
+
+#: src/window.py:140
+msgid "Years"
+msgstr ""
+
+#: src/window.py:143
+msgid "Waist"
+msgstr ""
+
+#: src/window.py:143
+msgid "Affects Waist to Height ratio, Waist to Hip ratio and BRI"
+msgstr ""
+
+#: src/window.py:146
+msgid "Hip"
+msgstr ""
+
+#: src/window.py:146
+msgid "Affects Waist to Hip ratio"
+msgstr ""
+
+#: src/window.py:165
+msgid "Copy BMI"
+msgstr ""
+
+#. Advanced results group
+#: src/window.py:181
+msgid "Results"
+msgstr ""
+
+#: src/window.py:184
+msgid "Body Mass Index"
+msgstr ""
+
+#: src/window.py:185
+msgid "Waist / Height"
+msgstr ""
+
+#: src/window.py:185
+msgid "Waist to height ratio"
+msgstr ""
+
+#: src/window.py:186
+msgid "Waist / Hip"
+msgstr ""
+
+#: src/window.py:186
+msgid "Waist to hip ratio"
+msgstr ""
+
+#: src/window.py:187
+msgid "BRI"
+msgstr ""
+
+#: src/window.py:187
+msgid "Body Roundness Index"
+msgstr ""
+
+#: src/window.py:290
+msgid "Centimetres"
+msgstr ""
+
+#: src/window.py:291
+msgid "Kilograms"
+msgstr ""
+
+#: src/window.py:293
+msgid "Inches"
+msgstr ""
+
+#: src/window.py:294
+msgid "Pounds"
+msgstr ""
+
+#: src/window.py:390
+msgid "Underweight"
+msgstr ""
+
+#: src/window.py:391 src/window.py:402 src/window.py:412 src/window.py:419
+#: src/window.py:428
+msgid "Healthy"
+msgstr ""
+
+#: src/window.py:392 src/window.py:420 src/window.py:429
+msgid "Overweight"
+msgstr ""
+
+#: src/window.py:393 src/window.py:421 src/window.py:430
+msgid "Obese"
+msgstr ""
+
+#: src/window.py:394 src/window.py:431
+msgid "Extremely obese"
+msgstr ""
+
+#: src/window.py:399
+msgid "Underweight [Severe]"
+msgstr ""
+
+#: src/window.py:400
+msgid "Underweight [Moderate]"
+msgstr ""
+
+#: src/window.py:401
+msgid "Underweight [Mild]"
+msgstr ""
+
+#: src/window.py:404
+msgid "Obese [Class 1]"
+msgstr ""
+
+#: src/window.py:405
+msgid "Obese [Class 2]"
+msgstr ""
+
+#: src/window.py:406
+msgid "Obese [Class 3]"
+msgstr ""
+
+#: src/window.py:413
+msgid "Unhealthy"
+msgstr ""
+
+#: src/window.py:427
+msgid "Very lean"
+msgstr ""
+
+#: src/window.py:478
+#, python-brace-format
+msgid "Copied result '{value}'"
+msgstr ""
+
+#. Creating and showing a toast
+#: src/window.py:481
+msgid "Result copied"
+msgstr ""

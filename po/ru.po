@@ -1,0 +1,294 @@
+# Russian translations for bmi package.
+# Copyright (C) 2025 THE bmi'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bmi package.
+# Automatically generated, 2025.
+# David Sultaniiazov <x1z53@altlinux.org>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bmi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-27 16:46+0300\n"
+"PO-Revision-Date: 2025-04-27 16:15+0300\n"
+"Last-Translator: David Sultaniiazov <x1z53@altlinux.org>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#. Basic window properties
+#. Result rows
+#: data/io.github.philippkosarev.bmi.desktop.in:3
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:7 src/window.py:49
+#: src/window.py:184 src/window.py:492
+msgid "BMI"
+msgstr "ИМТ"
+
+#: data/io.github.philippkosarev.bmi.desktop.in:4
+msgid "Calculate body mass index"
+msgstr "Вычисление индекса массы тела"
+
+#: data/io.github.philippkosarev.bmi.desktop.in:10
+msgid "GTK;body;mass;index;calculator"
+msgstr "GTK;body;mass;index;calculator"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:8
+msgid "Body mass index calculator"
+msgstr "Калькулятор индекса массы тела"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:10
+msgid ""
+"BMI is an open-source, body mass index calculator built with GTK4 and "
+"LibAdwaita."
+msgstr ""
+"BMI — это калькулятор индекса массы тела с открытым исходным кодом, "
+"построенный с помощью GTK4 и LibAdwaita"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:52
+msgid "BMI Basic Mode Dark Theme"
+msgstr "BMI Базовый режим Тёмная тема"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:56
+msgid "BMI Basic Mode Light Theme"
+msgstr "BMI Базовый режим Светлая тема"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:60
+msgid "BMI Advanced Mode Dark Theme"
+msgstr "BMI Расширенный режим Тёмная тема"
+
+#: data/io.github.philippkosarev.bmi.metainfo.xml.in:64
+msgid "BMI Advanced Mode Light Theme"
+msgstr "BMI Расширенный режим Светлая тема"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:6
+msgid "Forget height and weight on quit"
+msgstr "Забыть рост и вес и выйти"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:10
+msgid "Whether the app uses metric or imperial units"
+msgstr "В приложении доступны как метрические, так и имепрские единицы"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:14
+msgid "Height in centimetres or inches"
+msgstr "Рост в сантиметрах или дюймах"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:18
+msgid "Weight in kilograms or pounds"
+msgstr "Вес в килограмах или фунтах"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:22
+msgid "Toggles Advanced mode"
+msgstr "Переключатели расширенного режима"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:26
+msgid "Years since birth"
+msgstr "Количество полных лет"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:30
+msgid "Biological gender"
+msgstr "Биологический пол"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:34
+msgid "Waist circumference in centimeters"
+msgstr "Обхват талии в сантиметрах"
+
+#: data/io.github.philippkosarev.bmi.gschema.xml:38
+msgid "Hip circumference in centimeters"
+msgstr "Обхват бёдер в сантиметрах"
+
+#: src/window.py:62
+msgid "Show About"
+msgstr "Показать справку"
+
+#: src/window.py:68
+msgid "BMI (Basic)"
+msgstr "ИМТ (Базовый)"
+
+#: src/window.py:68
+msgid "BMI (Advanced)"
+msgstr "ИМТ (Продвинутый)"
+
+#: src/window.py:80
+msgid "Switch to imperial"
+msgstr "Переключиться на имперскую систему"
+
+#: src/window.py:85
+msgid "Forget values on close"
+msgstr "Забыть значения при закрытии"
+
+#. Advanced input group
+#: src/window.py:124
+msgid "Advanced inputs"
+msgstr "Продвинутый ввод"
+
+#. Gender input row
+#: src/window.py:127
+msgid "Gender"
+msgstr "Пол"
+
+#: src/window.py:128
+msgid "Affects healthy/unhealthy thresholds for Waist to Hip ratio"
+msgstr ""
+"Влияет на здоровые/нездоровые пороговые значения соотношения талии и бёдер"
+
+#: src/window.py:131
+msgid "Average"
+msgstr "Среднее"
+
+#. Waist to Hip thresholds
+#: src/window.py:131 src/window.py:361
+msgid "Female"
+msgstr "Женщина"
+
+#: src/window.py:131 src/window.py:364
+msgid "Male"
+msgstr "Мужчина"
+
+#: src/window.py:139
+msgid "Age"
+msgstr "Возраст"
+
+#: src/window.py:139
+msgid "Affects healthy/unhealthy thresholds for Waist to Height ratio"
+msgstr ""
+"Влияет на здоровые/нездоровые пороговые значения соотношения талии и роста"
+
+#: src/window.py:140
+msgid "Years"
+msgstr "Количество полных лет"
+
+#: src/window.py:143
+msgid "Waist"
+msgstr "Талия"
+
+#: src/window.py:143
+msgid "Affects Waist to Height ratio, Waist to Hip ratio and BRI"
+msgstr "Влияет на соотношение талии к росту, талии к бёдрам и ИОТ"
+
+#: src/window.py:146
+msgid "Hip"
+msgstr "Бёдра"
+
+#: src/window.py:146
+msgid "Affects Waist to Hip ratio"
+msgstr "Влияет на соотношение талии к бёдрам"
+
+#: src/window.py:165
+msgid "Copy BMI"
+msgstr "Скопировать ИМТ"
+
+#. Advanced results group
+#: src/window.py:181
+msgid "Results"
+msgstr "Результаты"
+
+#: src/window.py:184
+msgid "Body Mass Index"
+msgstr "Индекс массы тела"
+
+#: src/window.py:185
+msgid "Waist / Height"
+msgstr "Талия / Рост"
+
+#: src/window.py:185
+msgid "Waist to height ratio"
+msgstr "Отношение талии к росту"
+
+#: src/window.py:186
+msgid "Waist / Hip"
+msgstr "Талия / Бёдра"
+
+#: src/window.py:186
+msgid "Waist to hip ratio"
+msgstr "Отношение талии к Бёдрам"
+
+#: src/window.py:187
+msgid "BRI"
+msgstr "BRI"
+
+#: src/window.py:187
+msgid "Body Roundness Index"
+msgstr "Индекс округлости тела"
+
+#: src/window.py:290
+msgid "Centimetres"
+msgstr "Сантиметры"
+
+#: src/window.py:291
+msgid "Kilograms"
+msgstr "Килограммы"
+
+#: src/window.py:293
+msgid "Inches"
+msgstr "Дюймы"
+
+#: src/window.py:294
+msgid "Pounds"
+msgstr "Фунты"
+
+#: src/window.py:390
+msgid "Underweight"
+msgstr "Недостаточный вес"
+
+#: src/window.py:391 src/window.py:402 src/window.py:412 src/window.py:419
+#: src/window.py:428
+msgid "Healthy"
+msgstr "Здоровый"
+
+#: src/window.py:392 src/window.py:420 src/window.py:429
+msgid "Overweight"
+msgstr "Избыток веса"
+
+#: src/window.py:393 src/window.py:421 src/window.py:430
+msgid "Obese"
+msgstr "Ожирение"
+
+#: src/window.py:394 src/window.py:431
+msgid "Extremely obese"
+msgstr "Тяжёлое ожирение"
+
+#: src/window.py:399
+msgid "Underweight [Severe]"
+msgstr "Недостаточный вес [Выраженный]"
+
+#: src/window.py:400
+msgid "Underweight [Moderate]"
+msgstr "Недостаточный вес [Умеренный]"
+
+#: src/window.py:401
+msgid "Underweight [Mild]"
+msgstr "Недостаточный вес [Незначительный]"
+
+#: src/window.py:404
+msgid "Obese [Class 1]"
+msgstr "Ожирение [Класс 1]"
+
+#: src/window.py:405
+msgid "Obese [Class 2]"
+msgstr "Ожирение [Класс 2]"
+
+#: src/window.py:406
+msgid "Obese [Class 3]"
+msgstr "Ожирение [Класс 3]"
+
+#: src/window.py:413
+msgid "Unhealthy"
+msgstr "Нездоровый"
+
+#: src/window.py:427
+msgid "Very lean"
+msgstr "Очень худой"
+
+#: src/window.py:478
+#, python-brace-format
+msgid "Copied result '{value}'"
+msgstr "Скопированный результат '{value}'"
+
+#. Creating and showing a toast
+#: src/window.py:481
+msgid "Result copied"
+msgstr "Результат скопирован"
